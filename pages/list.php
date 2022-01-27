@@ -1,5 +1,3 @@
-<?php include "includes/header.php"?>
-
 <table>
         <thead><tr>
             <th class="p-2">N°</th>
@@ -16,5 +14,3 @@
             }?>
         </tbody>
     </table>
-
-<?php include "includes/footer.php"?>

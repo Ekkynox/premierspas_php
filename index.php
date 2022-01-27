@@ -1,16 +1,27 @@
 <?php
-    include_once "includes/header.php";
-?>
+    ob_start();
+    include "includes/header.php";
 
-<div class="d-flex">
-    <?php   
-    for ($i = 0; $i < 3; $i++) {
-        displayProductCard($myProducts[$i]);
-    } ?>
-</div>
+    if (isset($_GET["page"])) {
+    switch ($_GET["page"]) {
+        case 'login' :
+            include 'pages/login.php';
+            break;
+        case 'list' :
+            include 'pages/list.php';
+            break;
+        case 'logout' :
+            include 'pages/logout.php';
+            break;
+        default :
+            include 'pages/home.php';
+            break;
+    }
+        
+    } else {
+        include 'pages/home.php';
+    }
 
-<a href="list.php"><button type="button" class="btn btn-light">Voir tous les produits</button></a>
-
-<?php
-    include_once "includes/footer.php";
+    include "includes/footer.php";
+    ob_end_flush();
 ?>

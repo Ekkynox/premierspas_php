@@ -1,7 +1,3 @@
-<?php 
-    include_once "includes/header.php";
-?>
-
 <form class="w-50 mt-5 m-auto d-flex flex-column justify-content-center align-items-center" action="" method="POST">
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Nom d'utilisateur</label>
@@ -23,7 +19,3 @@
     <?php } ?>
     <button type="submit" class="btn btn-primary">Se connecter</button>
 </form>
-
-<?php
-    include_once "includes/footer.php";
-?>
