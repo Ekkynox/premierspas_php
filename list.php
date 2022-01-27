@@ -2,11 +2,11 @@
 
 <table>
         <thead><tr>
-            <th>N°</th>
-            <th>Nom</th>
-            <th>Prix TVA</th>
-            <th>Prix TTC</th>
-            <th>Description</th>
+            <th class="p-2">N°</th>
+            <th class="p-2">Nom</th>
+            <th class="p-2">Prix TVA</th>
+            <th class="p-2">Prix TTC</th>
+            <th class="p-2">Description</th>
         </tr></thead>
         <tbody>
             <?php foreach ($myProducts as $key => $product) {

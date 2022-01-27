@@ -1,4 +1,5 @@
 <?php
+    $mdp = 'prout' ;
     $myProducts = [
         [
             'name' => "Bonnet en laine",

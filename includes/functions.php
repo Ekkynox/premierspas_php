@@ -1,25 +1,25 @@
 <?php
 function calcTVA(float $price) {
-    return $price*0.8;
+    return round($price/1.2, 2);
 }
 
 function displayProduct(array $product) {
-    echo "<td>" . $product["name"] . "</td>
-            <td>" . calcTVA($product["price"]) . " €</td>
-            <td>";
+    echo '<td class="p-2">' . $product["name"] . '</td>
+            <td class="p-2">' . calcTVA($product["price"]) . " €</td>
+            ";
         if ($product["price"] <= 12) {
-            echo '<p style="color:green">';
+            echo '<td class="p-2" style="color:green">';
             } else {
-            echo '<p style="color:blue">';
+            echo '<td class="p-2" style="color:blue">';
         }
-        echo $product["price"] . " €</p></td>
-        <td>" . $product["desc"] . "</td>";
+        echo $product["price"] . ' €</td>
+        <td class="p-2">' . $product["desc"] . "</td>";
 }
 
 function displayProductCard(array $product) {
     ?>
     <div class="card m-2" style="width: 18rem;">
-        <?= '<img src="' . $product["src"] . '" class="card-img-top">'?>
+    <img src=<?= $product["src"]?> class="card-img-top">
         <div class="card-body">
             <h5 class="card-title">
                 <?= $product["name"] ?>
@@ -32,4 +32,8 @@ function displayProductCard(array $product) {
             </p>
         </div>
     </div>
-<?php } ?>
+<?php }
+
+function logIn() {
+
+}?>

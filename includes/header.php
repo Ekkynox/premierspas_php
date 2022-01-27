@@ -1,6 +1,10 @@
 <?php
     require_once "includes/variables.php";
     require_once "includes/functions.php";
+    session_start();
+    if(isset($_POST['username']) && !(empty($_POST['username'])) && $_POST['password'] == $mdp) {
+        $_SESSION['login'] = $_POST['username'];
+    }
 ?>
 
 <!DOCTYPE html>
@@ -14,3 +18,30 @@
     <title>Bonnets</title>
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.php">Bonelaine</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="list.php">Liste des produits</a>
+                    </li>
+                    <?php if (isset($_SESSION['login'])) {?>
+                        <li class="nav-item">
+                        <a class="nav-link" href="logout.php">Se déconnecter</a>
+                        </li>
+                    <?php } else { ?>
+                        <li class="nav-item">
+                        <a class="nav-link" href="login.php">Se connecter</a>
+                        </li>
+                    <?php } ?>
+                </ul>
+                <span class="navbar-text"><?php if(isset($_SESSION['login'])) { 
+                    echo $_SESSION['login']; }?>
+                </span>
+            </div>
+        </div>
+    </nav>
