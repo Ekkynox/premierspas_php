@@ -1,16 +1,11 @@
-<?php
-    include_once "includes/header.php";
-?>
+<?php ob_start();
+    include "includes/header.php";
 
-<div class="d-flex">
-    <?php   
-    for ($i = 0; $i < 3; $i++) {
-        displayProductCard($myProducts[$i]);
-    } ?>
-</div>
+    if (isset($_GET["page"]) && file_exists('pages/' . $_GET["page"] . '.php')) {
+        include 'pages/' . $_GET["page"] . '.php';
+    } else {
+        include 'pages/home.php';
+    }
 
-<a href="list.php"><button type="button" class="btn btn-light">Voir tous les produits</button></a>
-
-<?php
-    include_once "includes/footer.php";
-?>
+    include "includes/footer.php";
+    ob_end_flush(); ?>

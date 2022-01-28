@@ -1,6 +1,10 @@
 <?php
     require_once "includes/variables.php";
     require_once "includes/functions.php";
+    session_start();
+    if(isset($_POST['username']) && !(empty($_POST['username'])) && $_POST['password'] == $mdp) {
+        $_SESSION['login'] = $_POST['username'];
+    }
 ?>
 
 <!DOCTYPE html>
@@ -14,3 +18,34 @@
     <title>Bonnets</title>
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="?page=home">Bonnelaine</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="?page=list">Liste des produits</a>
+                    </li>
+                    <?php if (isset($_SESSION['login'])) {?>
+                        <li class="nav-item">
+                        <a class="nav-link" href="?page=logout">Se déconnecter</a>
+                        </li>
+                    <?php } else { ?>
+                        <li class="nav-item">
+                        <a class="nav-link" href="?page=login">Se connecter</a>
+                        </li>
+                    <?php } ?>
+                </ul>
+                <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="?page=cart">Panier</a></li>
+                <li class="navbar-text"><?php if(isset($_SESSION['login'])) { 
+                    echo $_SESSION['login']; }?>
+                </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
