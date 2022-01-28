@@ -3,18 +3,17 @@ function calcTVA(float $price) {
     return round($price/1.2, 2);
 }
 
-function displayProduct(array $product) {
-    echo '<td class="p-2">' . $product["name"] . '</td>
-            <td class="p-2">' . calcTVA($product["price"]) . " €</td>
-            ";
-        if ($product["price"] <= 12) {
-            echo '<td class="p-2" style="color:green">';
-            } else {
-            echo '<td class="p-2" style="color:blue">';
-        }
-        echo $product["price"] . ' €</td>
-        <td class="p-2">' . $product["desc"] . "</td>";
-}
+function displayProduct(array $product) {?>
+    <td class="p-2"><?= $product["name"]?></td>
+            <td class="p-2"><?= calcTVA($product["price"]) . " €" ?></td>
+            <?php if ($product["price"] <= 12) {?>
+            <td class="p-2" style="color:green">
+            <?php } else {?>
+            <td class="p-2" style="color:blue">
+            <?php }
+        echo $product["price"] . ' €'?></td>
+        <td class="p-2"> <?= $product["desc"]?></td>
+<?php }
 
 function displayProductCard(array $product) {
     ?>
@@ -25,7 +24,7 @@ function displayProductCard(array $product) {
                 <?= $product["name"] ?>
             </h5>
             <h6>
-                <?= $product["price"]. ' €' ?>
+                <?= number_format($product["price"], 2) . ' €' ?>
             </h6>
             <p class="card-text">
                 <?= $product["desc"] ?>
@@ -33,7 +32,3 @@ function displayProductCard(array $product) {
         </div>
     </div>
 <?php }
-
-function logIn() {
-
-}?>
