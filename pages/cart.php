@@ -20,11 +20,11 @@ if (isset($_SESSION['cart']) && !(empty($_SESSION['cart']))) { ?>
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($_SESSION['cart'] as $key => $product) { ?>
+            <?php foreach ($_SESSION['cart'] as $key => $quantity) { ?>
                 <tr>
-                    <td> <?= $myProducts[$key]['name'] ?> </td>
-                    <td> <?= $product ?> </td>
-                    <td> <?= $myProducts[$key]['price'] * $product ?> </td>
+                    <td class="p-2"> <?= $myProducts[$key]['name'] ?> </td>
+                    <td class="p-2"> <?= $quantity ?> </td>
+                    <td class="p-2"> <?= number_format($myProducts[$key]['price'] * $quantity, 2) ?> € </td>
                     <td class="p-2"> <a type="button" class="btn btn-light" href="?page=cart&key=<?= $key ?>&type=plus">+1</a>
                         <a type="button" class="btn btn-light" href="?page=cart&key=<?= $key ?>&type=moins">-1</a>
                     </td>
