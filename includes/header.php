@@ -1,6 +1,8 @@
 <?php
+require_once "classes/Beanie.php";
 require_once "includes/variables.php";
 require_once "includes/functions.php";
+
 session_start();
 if (isset($_POST['username']) && !(empty($_POST['username'])) && $_POST['password'] == $mdp) {
     $_SESSION['login'] = $_POST['username'];
