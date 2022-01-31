@@ -1,11 +1,15 @@
 <?php if (isset($_GET['type']) && isset($_GET['key'])) {
-    if ($_GET['type'] == 'moins') {
-        $_SESSION['cart'][$_GET["key"]] -= 1;
-    } else if ($_GET['type'] == 'plus') {
-        $_SESSION['cart'][$_GET["key"]] += 1;
-    }
-    if ($_SESSION['cart'][$_GET["key"]] == 0) {
-        unset($_SESSION['cart'][$_GET["key"]]);
+    if (isset($_SESSION['cart'][$_GET['key']])) {
+        if ($_GET['type'] == 'moins') {
+            $_SESSION['cart'][$_GET["key"]] -= 1;
+        } else if ($_GET['type'] == 'plus') {
+            $_SESSION['cart'][$_GET["key"]] += 1;
+        }
+        if ($_SESSION['cart'][$_GET["key"]] == 0) {
+            unset($_SESSION['cart'][$_GET["key"]]);
+        }
+    } else {
+        $_SESSION['cart'][$_GET['key']] = 1;
     }
     header('Location: ?page=cart');
 }

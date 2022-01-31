@@ -32,7 +32,17 @@ function displayProductCard(array $product, $key)
                 <p class="card-text">
                     <?= $product["desc"] ?>
                 </p>
-                <a type="button" class="btn btn-light" href="?page=home&key=<?= $key ?>">Ajouter au panier</a>
+                <a type="button" class="btn btn-light" href="?page=cart&type=more&key=<?= $key ?>">Ajouter au panier</a>
             </div>
         </div>
     <?php }
+
+
+function not_empty($value)
+{
+    if ($value == " " || empty($value)) {
+        return false;
+    } else {
+        return $value;
+    }
+}

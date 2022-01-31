@@ -1,14 +1,3 @@
-<?php
-if (isset($_GET['key'])) {
-    if (isset($_SESSION['cart'][$_GET['key']])) {
-        $_SESSION['cart'][$_GET['key']] += 1;
-    } else {
-        $_SESSION['cart'][$_GET['key']] = 1;
-    }
-    header('Location: ?page=list');
-}
-?>
-
 <table>
     <thead>
         <tr>
@@ -24,7 +13,7 @@ if (isset($_GET['key'])) {
             <tr>
                 <td> <?= $key ?> </td>
                 <?php displayProduct($product) ?>
-                <td class="p-2"> <a type="button" class="btn btn-light" href="?page=list&key=<?= $key ?>">Ajouter au panier</a></td>
+                <td class="p-2"> <a type="button" class="btn btn-light" href="?page=cart&type=more&key=<?= $key ?>">Ajouter au panier</a></td>
             </tr>
         <?php } ?>
     </tbody>
