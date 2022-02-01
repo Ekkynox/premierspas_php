@@ -3,6 +3,8 @@ session_start();
 
 spl_autoload_register(function () {
     require_once "classes/Beanie.php";
+    require_once "classes/BeanieFilter.php";
+    require_once "classes/Contact.php";
 });
 
 require_once "includes/variables.php";

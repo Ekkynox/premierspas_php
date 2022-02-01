@@ -53,7 +53,7 @@ function not_empty($value)
 function filter_form($var)
 {
     $result = true;
-    if (isset($_POST["size"]) && $_POST["size"] != "" && !in_array(Beanie::AVAILABLE_SIZES[$_POST["size"]], $var->getSize())) {
+    if ($filters->getSize() != "" && !in_array(Beanie::AVAILABLE_SIZES[$_POST["size"]], $var->getSize())) {
         $result = false;
     } elseif (isset($_POST["material"]) && $_POST["material"] != "" && !in_array(Beanie::AVAILABLE_MATERIALS[$_POST["material"]], $var->getMaterial())) {
         $result = false;
