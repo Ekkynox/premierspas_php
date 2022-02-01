@@ -73,13 +73,6 @@ if (isset($_POST["priceMax"])) {
         </tr>
     </thead>
     <tbody>
-        <!-- <?php foreach ($myProducts as $key => $product) { ?>
-            <tr>
-                <td> <?= $key ?> </td>
-                <?php displayProduct($product) ?>
-                <td class="p-2"> <a type="button" class="btn btn-light" href="?page=cart&type=more&key=<?= $key ?>">Ajouter au panier</a></td>
-            </tr>
-        <?php } ?> -->
         <?php foreach (array_filter($myProducts, "filter_form") as $key => $product) { ?>
             <tr>
                 <td> <?= $key ?> </td>
