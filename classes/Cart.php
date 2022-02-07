@@ -41,7 +41,7 @@ class Cart
 
     public function addToCart()
     {
-        if ($this->key != null) {
+        if ($this->key != null && $this->action != null) {
             if (isset($_SESSION['cart'][$this->key])) {
                 if ($this->action == 'moins') {
                     $_SESSION['cart'][$this->key]--;
@@ -52,7 +52,9 @@ class Cart
                     unset($_SESSION['cart'][$this->key]);
                 }
             } else {
-                $_SESSION['cart'][$this->key] = 1;
+                if ($this->action == 'plus') {
+                    $_SESSION['cart'][$this->key] = 1;
+                }
             }
             header('Location: ?page=cart');
         }
