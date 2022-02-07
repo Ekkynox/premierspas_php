@@ -52,9 +52,7 @@ class Cart
                     unset($_SESSION['cart'][$this->key]);
                 }
             } else {
-                if ($this->action == 'plus') {
-                    $_SESSION['cart'][$this->key] = 1;
-                }
+                $_SESSION['cart'][$this->key] = 1;
             }
             header('Location: ?page=cart');
         }

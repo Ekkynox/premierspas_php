@@ -34,7 +34,7 @@ function displayProductCard(Beanie $product, $key)
                 <p class="card-text">
                     <?= $product->getDesc() ?>
                 </p>
-                <a type="button" class="btn btn-light" href="?page=cart&type=more&key=<?= $key ?>">Ajouter au panier</a>
+                <a type="button" class="btn btn-light" href="?page=cart&type=plus&key=<?= $key ?>">Ajouter au panier</a>
             </div>
         </div>
     <?php
