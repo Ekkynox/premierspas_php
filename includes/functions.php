@@ -49,18 +49,3 @@ function not_empty($value)
         return $value;
     }
 }
-
-function filter_form($var)
-{
-    $result = true;
-    if ($filters->getSize() != "" && !in_array(Beanie::AVAILABLE_SIZES[$_POST["size"]], $var->getSize())) {
-        $result = false;
-    } elseif (isset($_POST["material"]) && $_POST["material"] != "" && !in_array(Beanie::AVAILABLE_MATERIALS[$_POST["material"]], $var->getMaterial())) {
-        $result = false;
-    } elseif (isset($_POST["priceMin"]) && $_POST["priceMin"] != "" && $var->getPrice() < $_POST["priceMin"]) {
-        $result = false;
-    } elseif (isset($_POST["priceMax"]) && $_POST["priceMax"] != "" && $var->getPrice() > $_POST["priceMax"]) {
-        $result = false;
-    }
-    return $result;
-}
