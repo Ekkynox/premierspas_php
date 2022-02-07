@@ -4,7 +4,7 @@ if (
     && filter_var($_POST["name"], FILTER_CALLBACK, array('options' => 'not_empty'))
     && filter_var($_POST["message"], FILTER_CALLBACK, array('options' => 'not_empty'))
 ) {
-    //et ici il se passe un truc
+    $msg = new Contact(["email" => $_POST["email"], "subject" => $_POST["name"], "message" => $_POST["message"]]);
 }
 ?>
 

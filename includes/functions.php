@@ -34,15 +34,16 @@ function displayProductCard(Beanie $product, $key)
                 <p class="card-text">
                     <?= $product->getDesc() ?>
                 </p>
-                <a type="button" class="btn btn-light" href="?page=cart&type=more&key=<?= $key ?>">Ajouter au panier</a>
+                <a type="button" class="btn btn-light" href="?page=cart&type=plus&key=<?= $key ?>">Ajouter au panier</a>
             </div>
         </div>
-    <?php }
-
+    <?php
+}
 
 function not_empty($value)
 {
-    if ($value == " " || empty($value)) {
+    $value = trim($value);
+    if (empty($value)) {
         return false;
     } else {
         return $value;
