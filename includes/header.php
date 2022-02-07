@@ -1,5 +1,9 @@
 <?php
-require_once "classes/Beanie.php";
+
+spl_autoload_register(function () {
+    require_once "classes/Beanie.php";
+});
+
 require_once "includes/variables.php";
 require_once "includes/functions.php";
 
@@ -48,9 +52,10 @@ if (isset($_POST['username']) && !(empty($_POST['username'])) && $_POST['passwor
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="?page=cart">Panier</a></li>
-                    <li class="navbar-text"><?php if (isset($_SESSION['login'])) {
-                                                echo $_SESSION['login'];
-                                            } ?>
+                    <li class="navbar-text">
+                        <?php if (isset($_SESSION['login'])) {
+    echo $_SESSION['login'];
+} ?>
                     </li>
                 </ul>
             </div>
